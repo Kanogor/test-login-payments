@@ -7,8 +7,9 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import ru.kanogor.testlogin_payments.di.appModule
 import ru.kanogor.testlogin_payments.di.dataModule
+import ru.kanogor.testlogin_payments.di.domainModule
 
-class App: Application() {
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -16,7 +17,7 @@ class App: Application() {
         startKoin {
             androidContext(this@App)
             androidLogger(Level.DEBUG)
-            modules(listOf(appModule, dataModule))
+            modules(listOf(appModule, dataModule, domainModule))
         }
 
     }

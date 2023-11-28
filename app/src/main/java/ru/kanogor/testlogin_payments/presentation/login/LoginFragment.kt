@@ -1,4 +1,4 @@
-package ru.kanogor.testlogin_payments.presentation
+package ru.kanogor.testlogin_payments.presentation.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,7 +15,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
-    val viewModel: LoginViewModel by viewModel()
+    private val viewModel: LoginViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +28,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getInfo()
+        viewModel.postLoginPassword(login = "demo", password = "12345")
 
         binding.button.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_payments)

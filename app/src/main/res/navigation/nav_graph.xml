@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/login"
-        android:name="ru.kanogor.testlogin_payments.presentation.LoginFragment"
+        android:name="ru.kanogor.testlogin_payments.presentation.login.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/payments"
-        android:name="ru.kanogor.testlogin_payments.presentation.PaymentsFragment"
+        android:name="ru.kanogor.testlogin_payments.presentation.payments.PaymentsFragment"
         android:label="Payments"
         tools:layout="@layout/fragment_payments">
         <action
