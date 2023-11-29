@@ -88,7 +88,7 @@ class LoginFragment : Fragment() {
 
     private fun moveToPayments() {
         findNavController().popBackStack(R.id.login, true)
-        findNavController().navigate(R.id.action_login_to_payments)
+        findNavController().navigate(R.id.payments)
     }
 
     override fun onDestroyView() {

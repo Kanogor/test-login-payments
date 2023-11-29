@@ -41,7 +41,7 @@ class PaymentsFragment : Fragment() {
         binding.exitButton.setOnClickListener {
             viewModel.exitAccount()
             findNavController().popBackStack(R.id.payments, true)
-            findNavController().navigate(R.id.action_payments_to_login)
+            findNavController().navigate(R.id.login)
         }
 
         val paymentAdapter = PaymentItemsAdapter()
