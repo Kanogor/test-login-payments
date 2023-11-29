@@ -42,6 +42,9 @@ android {
 
 dependencies {
 
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
@@ -57,12 +60,8 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-
-    implementation("androidx.paging:paging-runtime-ktx:3.2.1")
+    //swipe refresher
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    //Glide
-    implementation("com.github.bumptech.glide:glide:4.15.1")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
     //Moshi
     implementation("com.squareup.moshi:moshi:1.15.0")
     ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
@@ -78,8 +77,4 @@ dependencies {
     //Koin
     implementation("io.insert-koin:koin-core:3.4.2")
     implementation("io.insert-koin:koin-android:3.4.2")
-    //indicator
-    implementation ("me.relex:circleindicator:2.1.6")
-    //phone mask
-    implementation("io.github.vicmikhailau:MaskedEditText:5.0.1")
 }

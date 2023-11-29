@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Test Login-Payments"
 include(":app")
- 
+include(":data")
+include(":domain")

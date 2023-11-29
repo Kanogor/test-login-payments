@@ -1,7 +1,6 @@
 package ru.kanogor.testlogin_payments.data.retrofit
 
 import okhttp3.RequestBody
-import ru.kanogor.testlogin_payments.data.retrofit.SearchApi
 import ru.kanogor.testlogin_payments.domain.entity.ApiRepository
 import ru.kanogor.testlogin_payments.domain.entity.ReceivedGetInfo
 import ru.kanogor.testlogin_payments.domain.entity.ReceivedPostInfo

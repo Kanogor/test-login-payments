@@ -13,7 +13,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 
-class PaymentItemsAdapter() :
+class PaymentItemsAdapter :
     ListAdapter<ResponseInfo, PaymentItemsViewHolder>(PaymentItemsDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaymentItemsViewHolder {

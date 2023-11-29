@@ -1,7 +1,6 @@
 package ru.kanogor.testlogin_payments.domain.entity
 
 interface ReceivedGetInfo {
-
     val success: String
     val response: List<ResponseInfo>?
     val error: ErrorInfo?
