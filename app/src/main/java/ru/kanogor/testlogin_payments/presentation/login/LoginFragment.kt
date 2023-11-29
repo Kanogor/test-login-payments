@@ -40,8 +40,7 @@ class LoginFragment : Fragment() {
 
         viewModel.isTokenAdded.onEach {
             if (it) {
-                findNavController().popBackStack(R.id.login, true)
-                findNavController().navigate(R.id.action_login_to_payments)
+                moveToPayments()
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
@@ -60,8 +59,7 @@ class LoginFragment : Fragment() {
             viewModel.isSuccess.observe(viewLifecycleOwner) { isSuccess ->
                 if (isSuccess != null) if (isSuccess) {
                     if (findNavController().currentDestination?.label == "Login") {
-                        findNavController().popBackStack(R.id.login, true)
-                        findNavController().navigate(R.id.action_login_to_payments)
+                        moveToPayments()
                     }
                 } else {
                     Toast.makeText(
@@ -86,6 +84,16 @@ class LoginFragment : Fragment() {
             binding.passwordInputLayout.isEnabled = true
             binding.enterButton.isEnabled = true
         }
+    }
+
+    private fun moveToPayments() {
+        findNavController().popBackStack(R.id.login, true)
+        findNavController().navigate(R.id.action_login_to_payments)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
