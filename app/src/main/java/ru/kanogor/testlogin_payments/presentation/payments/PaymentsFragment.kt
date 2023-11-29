@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.kanogor.testlogin_payments.R
 import ru.kanogor.testlogin_payments.databinding.FragmentPaymentsBinding
+import ru.kanogor.testlogin_payments.presentation.adapters.PaymentItemsAdapter
 
 class PaymentsFragment : Fragment() {
 
@@ -28,10 +30,19 @@ class PaymentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getInfo()
+        val paymentAdapter = PaymentItemsAdapter()
 
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_payments_to_login)
+        binding.paymentsRecyclerView.adapter = paymentAdapter
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.refresh()
         }
+        viewModel.isLoading.onEach {
+            binding.swipeRefresh.isRefreshing = it
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
+
+        viewModel.responseInfo.onEach {
+            paymentAdapter.submitList(it)
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
+
     }
 }

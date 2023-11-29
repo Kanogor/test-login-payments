@@ -10,6 +10,6 @@ interface ReceivedGetInfo {
 interface ResponseInfo {
     val id: Int
     val title: String
-    val amount: Any?
-    val created: Int?
+    val amount: String?
+    val created: Long?
 }
