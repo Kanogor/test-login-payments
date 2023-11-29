@@ -2,7 +2,6 @@ package ru.kanogor.testlogin_payments.data.dto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import ru.kanogor.testlogin_payments.domain.entity.ErrorGetInfo
 import ru.kanogor.testlogin_payments.domain.entity.ReceivedGetInfo
 import ru.kanogor.testlogin_payments.domain.entity.ResponseInfo
 
@@ -13,14 +12,8 @@ data class ReceivedGetInfoDto(
     @Json(name = "response")
     override val response: List<ResponseInfoDto>?,
     @Json(name = "error")
-    override val error: ErrorGetInfoDto?
+    override val error: ErrorInfoDto?
 ) : ReceivedGetInfo
-
-@JsonClass(generateAdapter = true)
-data class ErrorGetInfoDto(
-    @Json(name = "error_msg")
-    override val errorMsg: String
-) : ErrorGetInfo
 
 @JsonClass(generateAdapter = true)
 data class ResponseInfoDto(

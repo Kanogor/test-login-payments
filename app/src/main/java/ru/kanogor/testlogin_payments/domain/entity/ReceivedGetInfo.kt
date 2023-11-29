@@ -4,11 +4,7 @@ interface ReceivedGetInfo {
 
     val success: String
     val response: List<ResponseInfo>?
-    val error: ErrorGetInfo?
-}
-
-interface ErrorGetInfo {
-    val errorMsg: String
+    val error: ErrorInfo?
 }
 
 interface ResponseInfo {

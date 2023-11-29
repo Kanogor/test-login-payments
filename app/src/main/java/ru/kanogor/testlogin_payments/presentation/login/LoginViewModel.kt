@@ -2,6 +2,8 @@ package ru.kanogor.testlogin_payments.presentation.login
 
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,12 +29,13 @@ class LoginViewModel(
     private val _isDataLoading = MutableStateFlow<Boolean>(false)
     val isDataLoading = _isDataLoading.asStateFlow()
 
-    private val _isSuccess = MutableStateFlow<Boolean>(false)
-    val isSuccess = _isSuccess.asStateFlow()
+    private val _isSuccess = MutableLiveData<Boolean?>()
+    val isSuccess: LiveData<Boolean?> = _isSuccess
 
 
     fun postLoginPassword(login: String, password: String) {
         _isDataLoading.value = true
+        _isSuccess.value = null
         val jsonObject = JSONObject()
         jsonObject.put("login", login)
         jsonObject.put("password", password)

@@ -4,12 +4,8 @@ interface ReceivedPostInfo {
 
     val success: String
     val response: ResponseToken?
-    val error: ErrorPostInfo?
+    val error: ErrorInfo?
 
-}
-
-interface ErrorPostInfo {
-    val errorMsg: String
 }
 
 interface ResponseToken {
