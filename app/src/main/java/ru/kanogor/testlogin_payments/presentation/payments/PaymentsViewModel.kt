@@ -32,6 +32,10 @@ class PaymentsViewModel(
         return pref.contains(TOKEN_KEY)
     }
 
+    fun exitAccount() {
+        pref.edit().remove(TOKEN_KEY).apply()
+    }
+
     private fun getInfo() {
         if (isTokenAdded()) {
             _isLoading.value = true

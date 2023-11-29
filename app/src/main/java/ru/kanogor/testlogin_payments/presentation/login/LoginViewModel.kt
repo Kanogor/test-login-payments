@@ -20,6 +20,16 @@ class LoginViewModel(
     val pref: SharedPreferences
 ) : ViewModel() {
 
+    private val _isTokenAdded = MutableStateFlow<Boolean>(false)
+    val isTokenAdded = _isTokenAdded.asStateFlow()
+    private fun isTokenAdded() {
+        _isTokenAdded.value = pref.contains(TOKEN_KEY)
+    }
+
+    init {
+        isTokenAdded()
+    }
+
     private fun saveData(value: String) {
         val editor: SharedPreferences.Editor = pref.edit()
         editor.putString(TOKEN_KEY, value)
@@ -31,7 +41,6 @@ class LoginViewModel(
 
     private val _isSuccess = MutableLiveData<Boolean?>()
     val isSuccess: LiveData<Boolean?> = _isSuccess
-
 
     fun postLoginPassword(login: String, password: String) {
         _isDataLoading.value = true

@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_login_to_payments"
-            app:destination="@id/payments" />
+            app:destination="@id/payments"
+            app:popUpTo="@+id/login"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -22,7 +24,9 @@
         tools:layout="@layout/fragment_payments">
         <action
             android:id="@+id/action_payments_to_login"
-            app:destination="@id/login" />
+            app:destination="@id/login"
+            app:popUpTo="@+id/payments"
+            app:popUpToInclusive="true" />
     </fragment>
 
 

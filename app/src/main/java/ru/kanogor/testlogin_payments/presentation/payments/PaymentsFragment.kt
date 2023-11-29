@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.kanogor.testlogin_payments.R
 import ru.kanogor.testlogin_payments.databinding.FragmentPaymentsBinding
 import ru.kanogor.testlogin_payments.presentation.adapters.PaymentItemsAdapter
 
@@ -18,6 +21,11 @@ class PaymentsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: PaymentsViewModel by viewModel()
+
+    override fun onStart() {
+        super.onStart()
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.payment_title)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +37,12 @@ class PaymentsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.exitButton.setOnClickListener {
+            viewModel.exitAccount()
+            findNavController().popBackStack(R.id.payments, true)
+            findNavController().navigate(R.id.action_payments_to_login)
+        }
 
         val paymentAdapter = PaymentItemsAdapter()
 

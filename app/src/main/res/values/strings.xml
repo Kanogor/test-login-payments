@@ -4,6 +4,9 @@
     <string name="enter">Войти</string>
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
+    <string name="incorrect_login_password">Неправильный логин и пароль</string>
+    <string name="exit_acc">Выйти из аккаунта</string>
+    <string name="payment_title">Список платежей</string>
 
 
 </resources>

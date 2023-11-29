@@ -11,11 +11,13 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/green_background"
         android:elevation="1sp"
         android:outlineProvider="none"
         android:theme="@style/ToolbarTheme"
         app:title="@string/login_title"
-        app:titleCentered="true" />
+        app:titleCentered="true"
+        app:titleTextColor="@color/white"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_activity_main"
